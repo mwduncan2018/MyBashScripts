@@ -49,6 +49,9 @@ django-admin  startproject alpha /home/ubuntu/django_project
 # deactivate the virtual env
 deactivate
 
+# go to the directory that contains settings.py
+cd /home/ubuntu/django_project/alpha
+
 echo "==================="
 echo "==================="
 echo "==================="

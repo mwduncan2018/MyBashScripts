@@ -58,8 +58,8 @@ sudo ufw enable
 # check configuration
 sudo apache2ctl configtest
 
-# go to the ubuntu directory
-cd /home/ubuntu
+# go to directory that contains settings.py
+cd /home/ubuntu/django_project/alpha
 
 echo "==================="
 echo "==================="
