@@ -10,7 +10,7 @@ echo "==================="
 
 # create a virtual host for apache
 if [ ! -f /etc/apache2/sites-available/djangoproject.conf ]; then
-	sudo touch /etc/apache2/sites-available/djangoproject.conf
+	touch /etc/apache2/sites-available/djangoproject.conf
 	echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "ServerAdmin admin@djangoproject.localhost" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "ServerName djangoproject.localhost" >> /etc/apache2/sites-available/djangoproject.conf
@@ -38,13 +38,11 @@ if [ ! -f /etc/apache2/sites-available/djangoproject.conf ]; then
 fi
 
 # enable the virtual host file
-pushd
 cd /etc/apache2/sites-available
 sudo a2ensite djangoproject.conf
 
 # disable the default
 sudo a2dissite 000-default.conf
-popd
 
 # https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands
 sudo ufw allow 'Apache'
@@ -59,6 +57,9 @@ sudo ufw enable
 
 # check configuration
 sudo apache2ctl configtest
+
+# go to the ubuntu directory
+cd /home/ubuntu
 
 echo "==================="
 echo "==================="
