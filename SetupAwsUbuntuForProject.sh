@@ -29,13 +29,11 @@ fi
 
 if [ ! -f /home/ubuntu/django_project/venv ]; then
 	# create a virtual env in the 'django_project' directory
-	cd /home/ubuntu/django_project
-	python3 -m venv venv
-	cd /home/ubuntu
+	python3 -m venv /home/ubuntu/django_project/venv
 fi
 
 # enable the virtual env
-source /django_project/venv/bin/activate
+source /home/ubuntu/django_project/venv/bin/activate
 
 if [ -f /home/ubuntu/django_project/requirements.txt ]; then
 	# install packages --> requirements.txt
@@ -47,16 +45,14 @@ fi
 
 # create a django project
 # the . puts the manage.py in the current directory
-django-admin  startproject my_django_project .
+django-admin  startproject alpha /home/ubuntu/django_project
 # deactivate the virtual env
 deactivate
-# go back up to the top directory
-cd /home/ubuntu
 
 echo "==================="
 echo "==================="
 echo "==================="
-echo "Go into 'my_django_project/settings.py' and add this line at the bottom"
+echo "Go into 'alpha/settings.py' and add this line at the bottom"
 echo "    STATIC_ROOT = os.path.join(BASE_DIR, \"static/\")"
 echo "==================="
 echo "==================="
