@@ -38,8 +38,8 @@ if [ ! -f /etc/apache2/sites-available/djangoproject.conf ]; then
 fi
 
 # enable the virtual host file
-cd /etc/apache2/sites-available
-sudo a2ensite djangoproject.conf
+#REMOVE THIS LINE IF IT WORKS OKAY cd /etc/apache2/sites-available
+sudo a2ensite /etc/apache2/sites-available/djangoproject.conf
 
 # disable the default
 sudo a2dissite 000-default.conf
@@ -61,7 +61,7 @@ sudo apache2ctl configtest
 echo "==================="
 echo "==================="
 echo "==================="
-echo "Add AWS IPv4 Public IP to ALLOWED HOSTS in 'django_project/settings.py'"
+echo "Add AWS IPv4 Public IP to ALLOWED HOSTS in 'alpha/settings.py'"
 echo "    Example: ALLOWED_HOSTS = ['54.158.154.186',]"
 echo "Execute 'sudo service apache2 restart' when finished and it is good to go!"
 echo "==================="
