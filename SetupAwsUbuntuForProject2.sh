@@ -26,14 +26,14 @@ if [ ! -f /etc/apache2/sites-available/djangoproject.conf ]; then
 	echo "<Directory /home/ubuntu/django_project/media>" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "Require all granted" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "</Directory>" >> /etc/apache2/sites-available/djangoproject.conf
-	echo "<Directory /home/ubuntu/django_project/my_django_project>" >> /etc/apache2/sites-available/djangoproject.conf
+	echo "<Directory /home/ubuntu/django_project/alpha>" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "<Files wsgi.py>" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "Require all granted" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "</Files>" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "</Directory>" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "WSGIDaemonProcess django_project python-path=/home/ubuntu/django_project python-home=/home/ubuntu/django_project/venv" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "WSGIProcessGroup django_project" >> /etc/apache2/sites-available/djangoproject.conf
-	echo "WSGIScriptAlias / /home/ubuntu/django_project/my_django_project/wsgi.py" >> /etc/apache2/sites-available/djangoproject.conf
+	echo "WSGIScriptAlias / /home/ubuntu/django_project/alpha/wsgi.py" >> /etc/apache2/sites-available/djangoproject.conf
 	echo "</VirtualHost>" >> /etc/apache2/sites-available/djangoproject.conf
 fi
 
@@ -57,9 +57,6 @@ sudo ufw enable
 
 # check configuration
 sudo apache2ctl configtest
-
-# change back to the original directory
-cd /home/ubuntu
 
 echo "==================="
 echo "==================="
