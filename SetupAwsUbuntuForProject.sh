@@ -3,7 +3,7 @@
 echo "==================="
 echo "==================="
 echo "==================="
-echo "This script sets up the AWS Ubuntu image from scratch to deploy the Post Something website with Apache"
+echo "This script sets up the AWS Ubuntu image with Apache and a Django project"
 echo "==================="
 echo "==================="
 echo "==================="
