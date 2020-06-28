@@ -4,9 +4,13 @@ echo "==================="
 echo "==================="
 echo "==================="
 echo "This script sets up the AWS Ubuntu image with Apache and a Django project"
+echo "This script must be executed as root"
 echo "==================="
 echo "==================="
 echo "==================="
+echo ""
+echo "... PRESS ENTER TO CONTINUE..."
+read tempvariable
 
 # update Ubuntu
 sudo apt-get update
