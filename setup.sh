@@ -8,6 +8,8 @@ echo "==================="
 echo "==================="
 echo "==================="
 
+read tempvariable
+
 # update Ubuntu
 sudo apt-get update
 # install pip3
@@ -18,6 +20,8 @@ sudo apt-get install python3-venv -y
 sudo apt-get install apache2 -y
 # install libapache2-mod-wsgi-py3
 sudo apt-get install libapache2-mod-wsgi-py3 -y
+
+read tempvariable
 
 if [ ! -f /home/ubuntu/django_project ]; then
 	# make a 'django_project' directory
@@ -32,6 +36,8 @@ if [ ! -f /home/ubuntu/django_project/venv ]; then
 	python3 -m venv /home/ubuntu/django_project/venv
 fi
 
+read tempvariable
+
 # enable the virtual env
 source /home/ubuntu/django_project/venv/bin/activate
 
@@ -43,11 +49,15 @@ else
 	pip3 install django==2.1.1
 fi
 
+read tempvariable
+
 # create a django project
 # the . puts the manage.py in the current directory
 django-admin  startproject alpha /home/ubuntu/django_project
 # deactivate the virtual env
 deactivate
+
+read tempvariable
 
 echo "==================="
 echo "==================="
@@ -56,6 +66,8 @@ echo "Part 2 of the setup"
 echo "==================="
 echo "==================="
 echo "==================="
+
+read tempvariable
 
 # create a virtual host for apache
 if [ ! -f /etc/apache2/sites-available/djangoproject.conf ]; then
@@ -86,12 +98,18 @@ if [ ! -f /etc/apache2/sites-available/djangoproject.conf ]; then
 	echo "</VirtualHost>" >> /etc/apache2/sites-available/djangoproject.conf
 fi
 
+read tempvariable
+
 # enable the virtual host file
 cd /etc/apache2/sites-available
 sudo a2ensite djangoproject.conf
 
+read tempvariable
+
 # disable the default
 sudo a2dissite 000-default.conf
+
+read tempvariable
 
 # https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands
 sudo ufw allow 'Apache'
@@ -104,8 +122,12 @@ sudo ufw allow 443
 sudo ufw allow 80
 sudo ufw enable
 
+read tempvariable
+
 # check configuration
 sudo apache2ctl configtest
+
+read tempvariable
 
 # go to the ubuntu directory
 cd /home/ubuntu
@@ -121,3 +143,5 @@ echo "Execute 'sudo service apache2 restart' when finished and it is good to go!
 echo "==================="
 echo "==================="
 echo "==================="
+
+read tempvariable
