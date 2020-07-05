@@ -14,6 +14,8 @@ read tempvariable
 
 # update Ubuntu
 sudo apt-get update
+# install the AWS CLI
+sudo apt install awscli -y
 # install pip3
 sudo apt-get install python3-pip -y
 # install python virtual env
